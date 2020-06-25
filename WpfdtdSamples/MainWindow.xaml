@@ -1,0 +1,142 @@
+﻿<Window x:Class="WpfdtdSamples.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfdtdSamples"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="Design-time Datat Sample" Height="450" Width="800">
+    
+    <!--
+        This is a design-time data sample, a new feature available to WPF .NET Core and UWP developers 
+        starting with Visual Studio 2019 16.7 Preview 3+.
+    
+        TIP: Any XAML view that implements design time data requires the following:
+    
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            mc:Ignorable="d"
+    -->
+    
+    <Window.Resources>
+        <Style TargetType="WrapPanel">
+            <Setter Property="Background" Value="#FFE5E5E5" />
+            <Setter Property="Orientation" Value="Horizontal" />
+        </Style>
+    </Window.Resources>
+
+    <DockPanel>
+        <StatusBar Grid.Row="1" Height="25" DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock d:Text="Data Connection FAiled" Margin="5 0 0 0" />
+
+            </StatusBarItem>
+        </StatusBar>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <TabControl Grid.Row="0">
+                <TabItem Header="Text + Input">
+                    <WrapPanel>
+                        <TextBlock Text="{Binding Path=TextBlockText}" Width="100" Height="25" Margin="10"
+                               d:Text="Text Block Here" />
+
+                        <TextBox Text="{Binding Path=TextBoxText}" Width="150" Height="25" Margin="10"
+                             d:Text="Textbox Design Time" />
+
+                        <!-- Testing out what a different character would look like for fun, but don't want it in the real app -->
+                        <PasswordBox PasswordChar="*" Width="100" Height="25" Margin="10"
+                                 d:PasswordChar="!" d:Password="Test" />
+
+                        <!-- In the real world this textbox would be used programmatically -->
+                        <RichTextBox Width="150" Height="150" Margin="10">
+                            <d:RichTextBox.Document>
+                                <d:FlowDocument>
+                                    <d:Paragraph>This is an example of a flow document paragaph
+                                        <d:Bold>DON'T MISS THIS</d:Bold>
+                                    </d:Paragraph>
+                                    <d:Paragraph Foreground="Red">Red Text</d:Paragraph>
+                                </d:FlowDocument>
+                            </d:RichTextBox.Document>
+                        </RichTextBox>
+                    </WrapPanel>
+                </TabItem>
+
+                <TabItem Header="Lists">
+                    <WrapPanel>
+                        <ListView Width="200" Height="75" Margin="10">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=.}" />
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <d:ListView.ItemsSource>
+                                <x:Array Type="sys:String">
+                                    <sys:String>Donovan</sys:String>
+                                    <sys:String>Nicole</sys:String>
+                                    <sys:String>Amanda</sys:String>
+                                </x:Array>
+                            </d:ListView.ItemsSource>
+                        </ListView>
+
+                        <ListBox Width="200" Height="75" Margin="10">
+                            <d:ListBox.ItemsSource>
+                                <x:Array Type="sys:String">
+                                    <sys:String>Scott</sys:String>
+                                    <sys:String>Lesser Scott</sys:String>
+                                    <sys:String>Terry</sys:String>
+                                </x:Array>
+                            </d:ListBox.ItemsSource>
+                        </ListBox>
+
+                        <TreeView Width="200" Height="75" Margin="10">
+                            <d:TreeView.ItemsSource>
+                                <x:Array Type="sys:String">
+                                    <sys:String>Mary</sys:String>
+                                    <sys:String>Immo</sys:String>
+                                    <sys:String>Mark</sys:String>
+                                </x:Array>
+                            </d:TreeView.ItemsSource>
+                        </TreeView>
+                    </WrapPanel>
+                </TabItem>
+
+                <TabItem Header="Buttons">
+                    <WrapPanel>
+                        <Button Content="{Binding Path=ButtonContent}" d:Content="Design Time Button" Width="125" Height="25" Margin="10" />
+                        <Button Content="{Binding Path=ButtonContent}" d:Content="Design Time Disabled" d:IsEnabled="false" Width="125" Height="25" Margin="10" />
+
+                        <CheckBox Content="{Binding Path=CheckBoxContent}" IsChecked="{Binding Path=CheckedBoxState}" Width="100" Margin="10"
+                              d:Content="Is Checked" d:IsChecked="True"  />
+
+                        <RadioButton Content="{Binding Path=RadioButtonContent}" d:Content="Design Time Button" Width="125" Height="25" Margin="10" />
+                    </WrapPanel>
+                </TabItem>
+
+                <TabItem Header="Images">
+                    <WrapPanel>
+                        <Image />
+                    </WrapPanel>
+                </TabItem>
+
+                <TabItem Header="Other">
+                    <WrapPanel>
+
+                    </WrapPanel>
+                </TabItem>
+
+                <TabItem Header="Other">
+                    <WrapPanel>
+                        <Calendar Margin="10" />
+
+                        <StatusBar Margin="10" Width="150" Height="25" />
+                    </WrapPanel>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </DockPanel>
+</Window>

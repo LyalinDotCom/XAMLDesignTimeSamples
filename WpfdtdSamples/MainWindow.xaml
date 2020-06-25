@@ -121,6 +121,7 @@
                             </d:TreeView.ItemsSource>
                         </TreeView>
 
+                        <!-- Entity Class example -->
                         <DataGrid Width="450" Height="200" Margin="10" Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" >
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="First Name"  Binding="{Binding FirstName}"/>
@@ -147,6 +148,8 @@
                               d:Content="Is Checked" d:IsChecked="True"  />
 
                         <RadioButton Content="{Binding Path=RadioButtonContent}" d:Content="Design Time Button" Width="125" Height="25" Margin="10" />
+
+                        <Slider Minimum="0" Maximum="100" d:Value="50" Width="100" Height="25" Margin="10" />
                     </WrapPanel>
                 </TabItem>
 

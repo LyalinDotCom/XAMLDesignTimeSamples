@@ -8,7 +8,7 @@
         xmlns:helper="clr-namespace:WpfdtdSamples.Helpers"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="Design-time Datat Sample" Height="450" Width="800">
+        Title="Design-time Data Sample" Height="450" Width="800">
     
     <!--
         This is a design-time data sample, a new feature available to WPF .NET Core and UWP developers 
@@ -62,18 +62,23 @@
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
 
-            <TabControl Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+
+            <TabControl Grid.Row="0" Grid.Column="0">
                 <TabItem Header="Text + Input">
                     <WrapPanel>
                         <TextBlock Text="{Binding Path=TextBlockText}" Width="100" Height="25" Margin="10"
-                               d:Text="Text Block Here" />
+                                 d:Text="Text Block Here" />
 
                         <TextBox Text="{Binding Path=TextBoxText}" Width="150" Height="25" Margin="10"
                              d:Text="Textbox Design Time" />
 
                         <!-- Testing out what a different character would look like for fun, but don't want it in the real app -->
                         <PasswordBox PasswordChar="*" Width="100" Height="25" Margin="10"
-                                 d:PasswordChar="!" d:Password="Test" />
+                                 d:PasswordChar="!" d:Password="Test" d:Background="red" />
 
                         <!-- In the real world this textbox would be used programmatically -->
                         <RichTextBox Width="150" Height="150" Margin="10">
@@ -97,6 +102,7 @@
                                     <sys:String>Donovan</sys:String>
                                     <sys:String>Nicole</sys:String>
                                     <sys:String>Amanda</sys:String>
+                                    <sys:String>Olia</sys:String>
                                 </x:Array>
                             </d:ListView.ItemsSource>
                         </ListView>
@@ -133,6 +139,8 @@
                             <d:DataGrid.ItemsSource>
                                 <x:Array Type="{x:Type models:Employee}">
                                     <models:Employee FirstName="Dmitry" LastName="Lyalin" Email="dmitry@youknowwhere" IsMember="1" Status="Processing" />
+                                    <models:Employee FirstName="Steve" LastName="Lyalin" Email="dmitry@youknowwhere" IsMember="1" Status="Processing" />
+                                    <models:Employee FirstName="Dmitry" LastName="Lyalin" Email="dmitry@youknowwhere" IsMember="1" Status="Processing" />
                                 </x:Array>
                             </d:DataGrid.ItemsSource>
                         </DataGrid>
@@ -150,6 +158,12 @@
                         <RadioButton Content="{Binding Path=RadioButtonContent}" d:Content="Design Time Button" Width="125" Height="25" Margin="10" />
 
                         <Slider Minimum="0" Maximum="100" d:Value="50" Width="100" Height="25" Margin="10" />
+
+                        <ComboBox Width="150" Margin="10">
+                            <ComboBoxItem>ComboBox Item #1</ComboBoxItem>
+                            <ComboBoxItem IsSelected="True">ComboBox Item #2</ComboBoxItem>
+                            <ComboBoxItem d:IsSelected="True">ComboBox Item #3</ComboBoxItem>
+                        </ComboBox>
                     </WrapPanel>
                 </TabItem>
 
@@ -169,6 +183,9 @@
                     </WrapPanel>
                 </TabItem>
             </TabControl>
+
+            <!-- Empty StackPanel in its own row just to show the d:GridLines better -->
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" Width="100" Background="Gray" />
         </Grid>
     </DockPanel>
 </Window>

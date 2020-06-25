@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfdtdSamples"
+        xmlns:models="clr-namespace:WpfdtdSamples.Models"
         xmlns:helper="clr-namespace:WpfdtdSamples.Helpers"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
@@ -36,6 +37,14 @@
         </DataTemplate>
         
         <helper:ListViewdtSelector x:Key="ListViewDataTemplateSelector" />
+        
+        <!-- DataGrid -->
+        <!--Create list of enumeration values-->
+        <ObjectDataProvider x:Key="myEnum" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type Type="models:OrderStatus"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
     </Window.Resources>
 
     <DockPanel>
@@ -111,6 +120,21 @@
                                 </x:Array>
                             </d:TreeView.ItemsSource>
                         </TreeView>
+
+                        <DataGrid Width="450" Height="200" Margin="10" Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="First Name"  Binding="{Binding FirstName}"/>
+                                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" />
+                                <DataGridHyperlinkColumn Header="Email" Binding="{Binding Email}" />
+                                <DataGridCheckBoxColumn Header="Member?" Binding="{Binding IsMember}" />
+                                <DataGridComboBoxColumn Header="Order Status" SelectedItemBinding="{Binding Status}" ItemsSource="{Binding Source={StaticResource myEnum}}" />
+                            </DataGrid.Columns>
+                            <d:DataGrid.ItemsSource>
+                                <x:Array Type="{x:Type models:Employee}">
+                                    <models:Employee FirstName="Dmitry" LastName="Lyalin" Email="dmitry@youknowwhere" IsMember="1" Status="Processing" />
+                                </x:Array>
+                            </d:DataGrid.ItemsSource>
+                        </DataGrid>
                     </WrapPanel>
                 </TabItem>
 
@@ -136,7 +160,9 @@
                     <WrapPanel>
                         <Calendar Margin="10" d:DisplayDate="07/25/2020" d:SelectedDate="07/25/2020" />
 
-                        <ProgressBar Margin="10" Width="150" Height="25" Minimum="0" Maximum="200" d:Value="100"  />
+                        <DatePicker Margin="10" Height="75" d:SelectedDate="05/05/2020" />
+
+                        <ProgressBar Margin="10" Width="150" Height="25" Minimum="0" Maximum="200" d:Value="180"  />
                     </WrapPanel>
                 </TabItem>
             </TabControl>

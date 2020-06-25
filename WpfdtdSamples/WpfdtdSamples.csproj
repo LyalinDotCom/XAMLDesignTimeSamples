@@ -6,4 +6,14 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Resources\Design-time\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\Design-time\HEADER-Surface-Spring-2020.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

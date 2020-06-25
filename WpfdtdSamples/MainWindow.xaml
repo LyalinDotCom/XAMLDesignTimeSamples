@@ -41,11 +41,13 @@
     <DockPanel>
         <StatusBar Grid.Row="1" Height="25" DockPanel.Dock="Bottom">
             <StatusBarItem>
-                <TextBlock d:Text="Data Connection FAiled" Margin="5 0 0 0" />
+                <TextBlock d:Text="Data Connection Failed" Margin="5 0 0 0" />
 
             </StatusBarItem>
         </StatusBar>
-        <Grid>
+        
+        <!-- Show GridLines only in design-time -->
+        <Grid d:ShowGridLines="True">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="auto" />
@@ -126,21 +128,15 @@
 
                 <TabItem Header="Images">
                     <WrapPanel>
-                        <Image />
+                        <Image Stretch="Uniform" d:Source="/Resources/Design-time/HEADER-Surface-Spring-2020.jpg" Width="500" Margin="10" />
                     </WrapPanel>
                 </TabItem>
 
                 <TabItem Header="Other">
                     <WrapPanel>
+                        <Calendar Margin="10" d:DisplayDate="07/25/2020" d:SelectedDate="07/25/2020" />
 
-                    </WrapPanel>
-                </TabItem>
-
-                <TabItem Header="Other">
-                    <WrapPanel>
-                        <Calendar Margin="10" />
-
-                        <StatusBar Margin="10" Width="150" Height="25" />
+                        <ProgressBar Margin="10" Width="150" Height="25" Minimum="0" Maximum="200" d:Value="100"  />
                     </WrapPanel>
                 </TabItem>
             </TabControl>

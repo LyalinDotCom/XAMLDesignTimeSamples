@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfdtdSamples"
+        xmlns:helper="clr-namespace:WpfdtdSamples.Helpers"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="Design-time Datat Sample" Height="450" Width="800">
@@ -24,6 +25,17 @@
             <Setter Property="Background" Value="#FFE5E5E5" />
             <Setter Property="Orientation" Value="Horizontal" />
         </Style>
+
+        <!-- ListView Templates and Helpers -->
+        <DataTemplate x:Key="ListViewDefaultDataTemplate">
+            <TextBlock Text="{Binding Path=.}" />
+        </DataTemplate>
+        
+        <DataTemplate x:Key="ListViewBoldDataTemplate">
+            <TextBlock Text="{Binding Path=.}" FontWeight="Bold" />
+        </DataTemplate>
+        
+        <helper:ListViewdtSelector x:Key="ListViewDataTemplateSelector" />
     </Window.Resources>
 
     <DockPanel>
@@ -68,12 +80,7 @@
 
                 <TabItem Header="Lists">
                     <WrapPanel>
-                        <ListView Width="200" Height="75" Margin="10">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Path=.}" />
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
+                        <ListView Width="200" Height="75" Margin="10" ItemTemplateSelector="{StaticResource ListViewDataTemplateSelector}">
                             <d:ListView.ItemsSource>
                                 <x:Array Type="sys:String">
                                     <sys:String>Donovan</sys:String>

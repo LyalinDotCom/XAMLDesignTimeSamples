@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30218.91
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfdtdSamples", "WpfdtdSamples\WpfdtdSamples.csproj", "{4C3F48B6-108B-47B0-847A-ECB8ACA8EAEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfdtdSamples", "WpfdtdSamples\WpfdtdSamples.csproj", "{4C3F48B6-108B-47B0-847A-ECB8ACA8EAEE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UwpdtdSamples", "UwpdtdSamples\UwpdtdSamples.csproj", "{9EFCAAA7-F9FF-4603-A3D4-F9EADDB5227D}"
 EndProject
@@ -41,7 +41,9 @@ Global
 		{4C3F48B6-108B-47B0-847A-ECB8ACA8EAEE}.Release|x64.Build.0 = Release|Any CPU
 		{4C3F48B6-108B-47B0-847A-ECB8ACA8EAEE}.Release|x86.ActiveCfg = Release|Any CPU
 		{4C3F48B6-108B-47B0-847A-ECB8ACA8EAEE}.Release|x86.Build.0 = Release|Any CPU
-		{9EFCAAA7-F9FF-4603-A3D4-F9EADDB5227D}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{9EFCAAA7-F9FF-4603-A3D4-F9EADDB5227D}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{9EFCAAA7-F9FF-4603-A3D4-F9EADDB5227D}.Debug|Any CPU.Build.0 = Debug|x64
+		{9EFCAAA7-F9FF-4603-A3D4-F9EADDB5227D}.Debug|Any CPU.Deploy.0 = Debug|x64
 		{9EFCAAA7-F9FF-4603-A3D4-F9EADDB5227D}.Debug|ARM.ActiveCfg = Debug|ARM
 		{9EFCAAA7-F9FF-4603-A3D4-F9EADDB5227D}.Debug|ARM.Build.0 = Debug|ARM
 		{9EFCAAA7-F9FF-4603-A3D4-F9EADDB5227D}.Debug|ARM.Deploy.0 = Debug|ARM

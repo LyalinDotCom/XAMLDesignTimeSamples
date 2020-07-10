@@ -7,6 +7,7 @@
         xmlns:models="clr-namespace:WpfdtdSamples.Models"
         xmlns:helper="clr-namespace:WpfdtdSamples.Helpers"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:ctrl="clr-namespace:WpfdtdSamples.Controls"
         mc:Ignorable="d"
         Title="Design-time Data Sample" Height="450" Width="800">
     
@@ -180,6 +181,8 @@
                         <DatePicker Margin="10" Height="75" d:SelectedDate="05/05/2020" />
 
                         <ProgressBar Margin="10" Width="150" Height="25" Minimum="0" Maximum="200" d:Value="180"  />
+
+                        <ctrl:ExampleUserControl Width="100" Height="100" />
                     </WrapPanel>
                 </TabItem>
             </TabControl>

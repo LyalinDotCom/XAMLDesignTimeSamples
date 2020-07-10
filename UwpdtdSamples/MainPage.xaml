@@ -9,6 +9,5 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Button d:Content="test" Width="100" Height="35" Margin="10" />
     </Grid>
 </Page>

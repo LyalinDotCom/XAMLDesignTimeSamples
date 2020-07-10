@@ -182,6 +182,7 @@
 
                         <ProgressBar Margin="10" Width="150" Height="25" Minimum="0" Maximum="200" d:Value="180"  />
 
+                        <!-- Note: A bug exists in 16.7 that prevent the control's design-time data to render on the page that is hosting it, but we will try to resolve this in 16.8 -->
                         <ctrl:ExampleUserControl Width="100" Height="100" />
                     </WrapPanel>
                 </TabItem>

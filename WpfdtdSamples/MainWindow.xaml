@@ -71,6 +71,7 @@
             <TabControl Grid.Row="0" Grid.Column="0">
                 <TabItem Header="Text + Input">
                     <WrapPanel>
+                        <Label Content="Test" Width="100" Height="100" />               
                         <TextBlock Text="{Binding Path=TextBlockText}" Width="100" Height="25" Margin="10"
                                  d:Text="Text Block Here" />
 
@@ -83,6 +84,7 @@
 
                         <!-- In the real world this textbox would be used programmatically -->
                         <RichTextBox Width="150" Height="150" Margin="10">
+                            <!-- This doesn't always work in 16.7 Preview 3, should be fixedin Preview 4) -->
                             <RichTextBox.Document>
                                 <d:FlowDocument>
                                     <d:Paragraph>This is an example of a flow document paragaph
@@ -170,6 +172,7 @@
 
                 <TabItem Header="Images">
                     <WrapPanel>
+                        <!-- This doesn't always work in 16.7 Preview 3 (build errors, but renders in designer), should be fixedin Preview 4) -->
                         <Image Stretch="Uniform" d:Source="/Resources/Design-time/HEADER-Surface-Spring-2020.jpg" Width="500" Margin="10" />
                     </WrapPanel>
                 </TabItem>
@@ -182,8 +185,8 @@
 
                         <ProgressBar Margin="10" Width="150" Height="25" Minimum="0" Maximum="200" d:Value="180"  />
 
-                        <!-- Note: A bug exists in 16.7 that prevent the control's design-time data to render on the page that is hosting it, but we will try to resolve this in 16.8 -->
-                        <ctrl:ExampleUserControl Width="100" Height="100" />
+                        <!-- Note: A bug exists in 16.7 that prevent the control's design-time data to render on the page that is hosting it (most of the time).We will try to resolve this in 16.8, but might take some time -->
+                        <ctrl:ExampleUserControl Width="250" Height="100" Margin="10" />
                     </WrapPanel>
                 </TabItem>
             </TabControl>

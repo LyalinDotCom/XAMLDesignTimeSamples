@@ -85,14 +85,14 @@
                         <!-- In the real world this textbox would be used programmatically -->
                         <RichTextBox Width="150" Height="150" Margin="10">
                             <!-- This doesn't always work in 16.7 Preview 3, should be fixedin Preview 4) -->
-                            <RichTextBox.Document>
+                            <d:RichTextBox.Document>
                                 <d:FlowDocument>
                                     <d:Paragraph>This is an example of a flow document paragaph
                                         <d:Bold>DON'T MISS THIS</d:Bold>
                                     </d:Paragraph>
                                     <d:Paragraph Foreground="Red">Red Text</d:Paragraph>
                                 </d:FlowDocument>
-                            </RichTextBox.Document>
+                            </d:RichTextBox.Document>
                         </RichTextBox>
                     </WrapPanel>
                 </TabItem>
